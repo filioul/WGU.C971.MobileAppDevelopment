@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WGUMauiApp.TermPage"
+             Title="Terms">
+    <Grid RowDefinitions="Auto,*" Padding="20">
+        <!-- Header Section -->
+        <StackLayout Grid.Row="0" Spacing="10">
+            <Button Text="Add new term" 
+                    BackgroundColor="#4A5468" 
+                    TextColor="White"
+                    Clicked="AddTermButtonClicked"
+                    />
+        </StackLayout>
+
+        <!-- Terms List -->
+        <CollectionView Grid.Row="1" x:Name="termsCollectionView" Margin="0,20,0,20">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="White" 
+                            Stroke="#4A5468"
+                            StrokeThickness="1"
+                            Margin="0,5">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10"/>
+                        </Border.StrokeShape>
+
+                        <Grid Padding="15" ColumnDefinitions="*,Auto">
+                            <!-- Left side - Term info -->
+                            <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                <Label Text="{Binding Title}" 
+                                    FontSize="18" FontAttributes="Bold" />
+                                <Label Text="{Binding StartDate, StringFormat='Start: {0:MM/dd/yyyy}'}" 
+                                    FontSize="14" TextColor="Gray" />
+                                <Label Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}" 
+                                    FontSize="14" TextColor="Gray" />
+                                <!-- Courses Section -->
+                                <StackLayout Margin="0,10,0,0">
+                                    <Label Text="Courses:" 
+                                FontSize="16" 
+                                FontAttributes="Bold" 
+                                TextColor="#2D3748" />
+
+                                    <!-- Courses List -->
+                                    <CollectionView ItemsSource="{Binding Courses}" 
+                                          BackgroundColor="Transparent">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border BackgroundColor="#F7FAFC" 
+                                                Stroke="#E2E8F0"
+                                                StrokeThickness="1"
+                                                Margin="0,2">
+                                                    <Border.StrokeShape>
+                                                        <RoundRectangle CornerRadius="5"/>
+                                                    </Border.StrokeShape>
+                                                    <Grid Padding="10" ColumnDefinitions="*,Auto">
+                                                        <StackLayout Grid.Column="0">
+                                                            <Label Text="{Binding Title}" 
+                                                                FontSize="15" 
+                                                                FontAttributes="Bold"
+                                                                TextColor="#2D3748" />
+                                                            <Label Text="{Binding StartDate, StringFormat='Start: {0:MM/dd/yyyy}'}" 
+                                                                FontSize="13" 
+                                                                TextColor="#2D3748" />
+                                                            <Label Text="{Binding EndDate, StringFormat='End: {0:MM/dd/yyyy}'}" 
+                                                                FontSize="13" 
+                                                                TextColor="#2D3748" />          
+                                                        </StackLayout>
+
+                                                        <Button
+                                                            Grid.Column="1" 
+                                                            Text="Edit Course"
+                                                            BackgroundColor="#4A5568"
+                                                            TextColor="White"
+                                                            FontSize="12"
+                                                            Padding="8,4"
+                                                            CornerRadius="4"
+                                                            VerticalOptions="Center"
+                                                            Clicked="EditCourseButton_Clicked"
+                                                            CommandParameter="{Binding .}"> 
+
+                                                        </Button>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                        <CollectionView.EmptyView>
+                                            <Label Text="No courses added yet" 
+                                        FontSize="14" 
+                                        TextColor="#A0AEC0" 
+                                        Margin="0,5,0,0"
+                                        HorizontalOptions="Start" />
+                                        </CollectionView.EmptyView>
+                                    </CollectionView>
+                                </StackLayout>
+
+                                <!-- Add Course Button -->
+                                <Button 
+                            Text="Add a course"
+                            BackgroundColor="#1A202C"
+                            TextColor="White"
+                            Margin="15, 10, 10, 0"
+                            Clicked="AddCourseButton_Clicked"
+                            CommandParameter="{Binding .}"
+                            IsEnabled="{Binding CanAddCourse}">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                     <Setter Property="BackgroundColor" Value="#1A202C" />
+                                     <Setter Property="TextColor" Value="White" />
+                                            <Style.Triggers>
+                                                <DataTrigger TargetType="Button" 
+                                                Binding="{Binding CanAddCourse}" 
+                                                Value="False">
+                                                    <Setter Property="BackgroundColor" Value="#E2E8F0" />
+                                                    <Setter Property="TextColor" Value="#A0AEC0" />
+                                                    <Setter Property="Text" Value="Course limit reached" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+
+                            </StackLayout>
+
+                            <!-- Right side - Button -->
+                            <Button Grid.Column="1" 
+                                ImageSource="settings.png"
+                                BackgroundColor="White"
+                                VerticalOptions="Center"
+                                Margin="10,0,0,0"
+                                Clicked="EditTermButtonClicked"/>
+                        </Grid>
+                        
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

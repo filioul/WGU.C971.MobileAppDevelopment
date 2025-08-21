@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WGUMauiApp.EditCoursePage"
+             Title="Edit Course">
+    <ScrollView BackgroundColor="#A2AEC5">
+        <Border
+            Margin="10"
+            BackgroundColor="#EDF0F7"
+            Stroke="#2D3648" StrokeThickness="2">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="9"/>
+            </Border.StrokeShape>
+            <VerticalStackLayout>
+                <Label Text="Title:"
+                   FontSize="Large"
+                   Margin="20,10,20,0"
+                   TextColor="#1A202C"
+                   FontAttributes="Bold"/>
+                <Entry x:Name="TitleEntry"
+                   FontSize="Large"
+                   Margin="20,10,20,10"
+                   BackgroundColor="White"/>
+                <Label Text="Start date:"
+                   FontSize="Large"
+                   Margin="20,10,20,0"
+                   TextColor="#1A202C"
+                   FontAttributes="Bold"/>
+                <DatePicker x:Name="StartDatePicker"
+                        FontSize="Large"
+                        Margin="20,10,20,10"
+                        BackgroundColor="White"
+                    />
+                <Label
+                    Text="Toggle notifications for the start date of the course:"
+                    FontSize="Medium"
+                    Margin="20,10,20,0"
+                    TextColor="#1A202C"
+                    FontAttributes="Bold"></Label>
+                <Switch
+                    x:Name="StartDateNotificationsSwitch"
+                    IsToggled="false"
+                    OnColor="#1A202C">
+                </Switch>
+                <Label Text="End date:"
+                   FontSize="Large"
+                   Margin="20,10,20,0"
+                   TextColor="#1A202C"
+                   FontAttributes="Bold"/>
+                <DatePicker x:Name="EndDatePicker"
+                        FontSize="Large"
+                        Margin="20,10,20,10"
+                        BackgroundColor="White"
+                        />
+                <Label
+                    Text="Toggle notifications for the end date of the course:"
+                    FontSize="Medium"
+                    Margin="20,10,20,0"
+                    TextColor="#1A202C"
+                    FontAttributes="Bold"></Label>
+                <Switch
+                    x:Name="EndDateNotificationsSwitch"
+                    IsToggled="false"
+                    OnColor="#1A202C">
+                </Switch>
+                <Label Text="The given start date must be before the given end date."
+                   FontSize="Large"
+                   Margin="20,10,20,0"
+                   TextColor="#1A202C"
+                   FontAttributes="Bold"/>
+                <Label Text="Status:"
+                    FontSize="Large"
+                    Margin="20,10,20,0"
+                    TextColor="#1A202C"
+                    FontAttributes="Bold"/>
+                <Picker x:Name="StatusPicker"
+                    Title="Select a status:"
+                    FontSize="Large"
+                    Margin="20,10,20,10"
+                    BackgroundColor="White">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Upcoming</x:String>
+                            <x:String>In Progress</x:String>
+                            <x:String>Completed</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Text="Instructor name:"
+                   FontSize="Large"
+                   Margin="20,10,20,0"
+                   TextColor="#1A202C"
+                   FontAttributes="Bold"/>
+                <Entry x:Name="InstructorNameEntry"
+                   FontSize="Large"
+                   Margin="20,10,20,10"
+                   BackgroundColor="White"/>
+                <Label Text="Instructor phone number:"
+                   FontSize="Large"
+                   Margin="20,10,20,0"
+                   TextColor="#1A202C"
+                   FontAttributes="Bold"/>
+                <Label Text="Format: 555-555-5555"
+                   FontSize="Medium"
+                   Margin="20,10,20,0"
+                   TextColor="#1A202C"/>  
+                <Entry x:Name="InstructorNumberEntry"
+                   FontSize="Large"
+                   Margin="20,10,20,10"
+                   BackgroundColor="White"/>
+                <Label Text="Instructor email address:"
+                   FontSize="Large"
+                   Margin="20,10,20,0"
+                   TextColor="#1A202C"
+                   FontAttributes="Bold"/>
+                <Label Text="Format: name@domain.edu"
+                   FontSize="Medium"
+                   Margin="20,10,20,0"
+                   TextColor="#1A202C"/>
+                <Entry x:Name="InstructorEmailEntry"
+                   FontSize="Large"
+                   Margin="20,10,20,10"
+                   BackgroundColor="White"/>
+                <Button
+                    x:Name="DeleteCourseButton"
+                    Text="DELETE COURSE"
+                    FontSize="Large"
+                    Margin="20,10,20,10"
+                    BackgroundColor="#E0282B"
+                    Clicked="DeleteCourseButton_Clicked"></Button>
+                <Button 
+                    x:Name="SaveButton"
+                    Text="SAVE"
+                    FontSize="Large"
+                    Margin="20,10,20,10"
+                    BackgroundColor="#1A202C"
+                    Clicked="SaveButton_Clicked">
+                </Button>
+            </VerticalStackLayout>
+        </Border>
+    </ScrollView>
+</ContentPage>

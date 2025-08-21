@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WGUMauiApp.ViewNotesPage"
+             Title="View Notes">
+    <VerticalStackLayout BackgroundColor="#A2AEC5">
+        <Border
+            Margin="10"
+            BackgroundColor="#EDF0F7"
+            Stroke="#2D3648" StrokeThickness="2">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="9"/>
+            </Border.StrokeShape>
+            <StackLayout>
+                <Label
+                Text="Your Notes"
+                FontSize="23"
+                FontAttributes="Bold"
+                Margin="15, 11, 20, 8"
+                TextColor="#4A5468">
+                </Label>
+                <Label
+                    x:Name="NotesLabel"
+                    Text="{Binding Notes}"
+                    FontSize="20"
+                    Margin="15, 11, 20, 8"
+                    TextColor="#4A5468"
+                    HorizontalTextAlignment="Center"
+                    IsVisible="false">
+                </Label>
+                <Label
+                    x:Name="NoNotesLabel"
+                    Text="No notes available"
+                    FontSize="20"
+                    Margin="15, 11, 20, 8"
+                    TextColor="#4A5468"
+                    HorizontalTextAlignment="Center"
+                    IsVisible="False">    
+                </Label>
+                <Button x:Name="EditNotesButton" 
+                        Text="EDIT NOTES"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        BackgroundColor="#2D3648"
+                        Margin="15, 8, 20, 8" 
+                        Clicked="EditNotesButton_Clicked">
+                </Button>
+                <Button x:Name="ShareNotesButton" 
+                        Text="SHARE NOTES"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        BackgroundColor="#2D3648"
+                        Margin="15, 8, 20, 8" 
+                        Clicked="ShareNotesButton_Clicked">
+                </Button>
+            </StackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

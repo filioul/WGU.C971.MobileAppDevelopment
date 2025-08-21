@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WGUMauiApp.EditTermPage"
+             Title="Edit Term">
+    <VerticalStackLayout 
+        BackgroundColor="#A2AEC5">
+        <Label Text="Title:"
+               FontSize="Large"
+               Margin="20,10,20,0"
+               TextColor="#1A202C"
+               FontAttributes="Bold"/>
+        <Entry x:Name="TitleEntry"
+               FontSize="Large"
+               Margin="20,10,20,10"
+               BackgroundColor="White"/>
+        <Label Text="Start date:"
+               FontSize="Large"
+               Margin="20,10,20,0"
+               TextColor="#1A202C"
+               FontAttributes="Bold"/>
+        <DatePicker x:Name="StartDatePicker"
+                    FontSize="Large"
+                    Margin="20,10,20,10"
+                    BackgroundColor="White"
+                />
+        <Label Text="End date:"
+               FontSize="Large"
+               Margin="20,10,20,0"
+               TextColor="#1A202C"
+               FontAttributes="Bold"/>
+        <DatePicker x:Name="EndDatePicker"
+                    FontSize="Large"
+                    Margin="20,10,20,10"
+                    BackgroundColor="White"
+                    />
+        <Label Text="The given start date must be before the given end date."
+               FontSize="Large"
+               Margin="20,10,20,0"
+               TextColor="#1A202C"
+               FontAttributes="Bold"/>
+        <Button
+            x:Name="DeleteTermButton"
+            Text="DELETE TERM"
+            FontSize="Large"
+            Margin="20,10,20,10"
+            BackgroundColor="#E0282B"
+            Clicked="DeleteTermButton_Clicked"></Button>
+        <Button 
+            x:Name="SaveButton"
+            Text="SAVE"
+            FontSize="Large"
+            Margin="20,10,20,10"
+            BackgroundColor="#1A202C"
+            Clicked="SaveButton_Clicked">
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>
